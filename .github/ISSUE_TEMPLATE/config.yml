@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: SUASORIA Bench yöntemi / method
+    url: https://github.com/tuncertimur/suasoria/blob/main/BENCHMARK.md
+    about: Sıralama nasıl ölçülüyor / How the leaderboard is measured

@@ -1,0 +1,23 @@
+name: 🐞 Hata bildir / Report a bug
+description: Oyunda bir şey ters gittiyse / Something went wrong in the game.
+title: "[hata] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Ne oldu? / What happened?
+      description: Ne bekliyordun, hangi adımda oldu? / What did you expect, at which step?
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Teknik ayrıntılar / Technical details
+      description: Oyundaki "🐞 Hata bildir" düğmesi bunu kendisi doldurur (sürüm, ekran, tarayıcı). / The in-game "🐞 Report a bug" button fills this in.
+      render: text
+  - type: input
+    id: build
+    attributes:
+      label: Sürüm / Build
+      description: Ayarlar'ın altında yazar. / Shown at the bottom of Settings.

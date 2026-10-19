@@ -1,0 +1,16 @@
+name: 💡 Öneri / Idea
+description: Oyunu ya da benchmark'ı daha iyi yapacak bir fikir / An idea for the game or the benchmark.
+title: "[öneri] "
+labels: ["idea"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Fikrin / Your idea
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Ek ayrıntı / More details
+      render: text

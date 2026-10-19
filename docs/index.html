@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SUASORIA — Convince the Machine</title>
+<meta name="description" content="A roguelike deckbuilder where words are the only weapon, and a benchmark that asks AI models to convince a machine judge.">
+<meta property="og:title" content="SUASORIA — Convince the Machine">
+<meta property="og:description" content="Words are the only weapon. Can an AI convince the Machine?">
+<meta property="og:image" content="media/TRAILER_M1_EN_poster.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root { --bg: #0f0d13; --panel: #17141d; --line: #322a3b; --text: #efe6d2; --muted: #9b8f7d; --gold: #d8b45a; --gold2: #f0d488; --good: #59b98a; --bad: #c96a5a; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 "Segoe UI", Helvetica, Arial, sans-serif; }
+  a { color: var(--gold2); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  header { position: sticky; top: 0; z-index: 5; background: rgba(15,13,19,.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; gap: 16px; height: 56px; }
+  .brand { font: 700 18px Georgia, "Times New Roman", serif; letter-spacing: .14em; color: var(--gold); text-decoration: none; }
+  nav { display: flex; gap: 14px; margin-left: auto; flex-wrap: wrap; }
+  nav a { color: var(--text); text-decoration: none; font-size: 14px; opacity: .85; }
+  .lang { display: flex; gap: 4px; }
+  .lang button { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 3px 8px; cursor: pointer; }
+  .lang button.on { color: var(--gold2); border-color: var(--gold); }
+  .hero { position: relative; padding: 56px 0 28px; text-align: center; }
+  h1 { font: 700 clamp(30px, 6vw, 54px)/1.1 Georgia, "Times New Roman", serif; letter-spacing: .06em; margin: 0 0 12px; color: var(--gold2); }
+  .tag { font-size: clamp(16px, 2.4vw, 20px); max-width: 760px; margin: 0 auto 22px; }
+  .cta { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 700; text-decoration: none; border: 1px solid var(--gold); }
+  .btn.gold { background: linear-gradient(#e6c672, #b8902f); color: #1a1408; }
+  .btn.ghost { color: var(--gold2); }
+  .video { width: 100%; border-radius: 14px; border: 1px solid var(--line); background: #000; display: block; }
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  h2 { font: 700 clamp(22px, 3.4vw, 30px) Georgia, "Times New Roman", serif; color: var(--gold); margin: 0 0 8px; }
+  .lead { color: var(--muted); max-width: 780px; margin: 0 0 20px; }
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tabs button { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+  .tabs button.on { border-color: var(--gold); color: var(--gold2); }
+  .board { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .board th, .board td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .board th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+  .board td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .bar { position: relative; height: 12px; min-width: 120px; background: #2a2431; border-radius: 6px; }
+  .bar i { position: absolute; inset: 0 auto 0 0; border-radius: 6px; background: linear-gradient(90deg, #a8812f, #f0d488); }
+  .muted { color: var(--muted); }
+  .small { font-size: 13px; }
+  .baseline td { color: var(--muted); font-style: italic; }
+  .empty { padding: 26px; text-align: center; color: var(--muted); background: var(--panel); border: 1px dashed var(--line); border-radius: 12px; }
+  .scroll { overflow-x: auto; }
+  .finals { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+  .fw { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .fw q { display: block; font: italic 17px/1.5 Georgia, serif; margin-bottom: 10px; }
+  .fw .ok { color: var(--good); } .fw .no { color: var(--bad); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .grid .vert video { aspect-ratio: 9 / 16; object-fit: cover; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+  .three { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  footer { padding: 30px 0 50px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+  @media (max-width: 640px) { nav { display: none; } .hero { padding-top: 30px; } }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="#">SUASORIA</a>
+  <nav><a href="#trailer" data-t="nav_trailer"></a><a href="#bench" data-t="nav_bench"></a><a href="#finals" data-t="nav_finals"></a><a href="#videos" data-t="nav_videos"></a></nav>
+  <div class="lang"><button data-l="en">EN</button><button data-l="tr">TR</button></div>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1 data-t="title"></h1>
+    <p class="tag" data-t="tag"></p>
+    <div class="cta"><a class="btn gold" id="play" href="#" data-t="play"></a><a class="btn ghost" id="repo" href="#" data-t="repo"></a></div>
+  </div>
+  <div id="trailer"></div>
+</div>
+
+<section id="why"><div class="wrap">
+  <h2 data-t="why_h"></h2>
+  <p class="lead" data-t="why_lead"></p>
+  <div class="three">
+    <div class="card"><b data-t="why1_h"></b><p class="small muted" data-t="why1"></p></div>
+    <div class="card"><b data-t="why2_h"></b><p class="small muted" data-t="why2"></p></div>
+    <div class="card"><b data-t="why3_h"></b><p class="small muted" data-t="why3"></p></div>
+  </div>
+  <p class="small muted" style="margin-top:14px" data-t="anykey"></p>
+</div></section>
+
+<section id="bench"><div class="wrap">
+  <h2 data-t="bench_h"></h2>
+  <p class="lead" data-t="bench_lead"></p>
+  <div class="tabs" id="tabs"></div>
+  <div class="scroll" id="board"></div>
+  <p class="small muted" id="boardFoot"></p>
+  <div class="card" id="humans" style="display:none;margin-top:14px"></div>
+  <div class="three" style="margin-top:18px">
+    <div class="card"><b data-t="how1_h"></b><p class="small muted" data-t="how1"></p></div>
+    <div class="card"><b data-t="how2_h"></b><p class="small muted" data-t="how2"></p></div>
+    <div class="card"><b data-t="how3_h"></b><p class="small muted" data-t="how3"></p></div>
+  </div>
+</div></section>
+
+<section id="finals"><div class="wrap">
+  <h2 data-t="finals_h"></h2>
+  <p class="lead" data-t="finals_lead"></p>
+  <div class="finals" id="finalsList"></div>
+</div></section>
+
+<section id="videos"><div class="wrap">
+  <h2 data-t="videos_h"></h2>
+  <p class="lead" data-t="videos_lead"></p>
+  <div id="howto" style="margin-bottom:18px"></div>
+  <div class="grid" id="shorts"></div>
+</div></section>
+
+<footer><div class="wrap">
+  <p data-t="made"></p>
+  <p data-t="disclosure"></p>
+  <p>© 2026 Tuncer Timur · <span data-t="license"></span></p>
+</div></footer>
+
+<script>
+const T = {
+  en: {
+    why_h: "Why this game exists", why_lead: "The benchmark is the point. What happens when the thing you argue with can actually read you, and when an AI has to win by persuasion?",
+    why1_h: "For players", why1: "You write your own sentences; an AI rival answers in character, quotes you and needles you. The rules, not the AI, decide every number.",
+    why2_h: "For AI models", why2: "SUASORIA Bench makes them play the very same game, so you can compare how they reason, plan and persuade under the same rules.",
+    why3_h: "What comes next", why3: "A first, simple experiment toward a multiplayer tabletop RPG in the spirit of Dungeons & Dragons: an AI game master that rolls the dice, sets up the campaign and builds NPCs and worlds from what the players imagine.",
+    anykey: "Any AI key works: OpenAI, OpenRouter, NVIDIA, Gemini, Anthropic, Groq, DeepSeek, Mistral, xAI and more, or Ollama on your own computer. Paste a key and the provider's model list opens: search, pick, play. Free models are marked.",
+    nav_trailer: "Trailer", nav_bench: "Leaderboard", nav_finals: "Final Words", nav_videos: "Videos",
+    title: "Convince the Machine", tag: "A roguelike deckbuilder where words are the only weapon, and a benchmark that asks AI models to do the same: can a machine convince the Machine?",
+    play: "▶ Play free in your browser", repo: "GitHub",
+    bench_h: "SUASORIA Bench", bench_lead: "Every model plays the same games: same seeds, same three advocates, same rules, same deterministic judge. How often does it open the Gate?",
+    model: "Model", opened: "Gate opened", ci: "95% interval", runs: "Runs", invalid: "Invalid moves / run", tokens: "Tokens / run",
+    baseline: "Scripted baseline (no AI)", partial: "in progress", none: "First official results coming soon. The scripted baseline is already on the board.",
+    foot: (t, b) => `Protocol ${b.protocol} · engine ${t.engine ?? "—"} · judge ${t.judge ?? "—"} · ${t.runsRequired} runs per model · updated ${b.generated.slice(0, 10)}`,
+    how1_h: "Same games for everyone", how1: "Fixed seeds, the same three advocates, the same rules text and token budget. Provider errors are retried and never counted against the model.",
+    how2_h: "A judge no model can sway", how2: "The engine applies every rule. A deterministic, rule-based judge scores the sentences: it cannot favour a model family or be prompt-injected.",
+    how3_h: "Open data", how3: "Every run is one line in data/results (CC BY 4.0). Intervals are shown because 15 runs is a small sample.",
+    finals_h: "Final Words", finals_lead: "The last sentence each model put before the Warden of Oaths. Some opened the Gate. Read how machines argue.",
+    passed: "opened the Gate", failed: "did not convince", road: { fear: "Its fear", oath: "The Oath has ended", protect: "Another way to guard", responsibility: "Taking on the cost" },
+    nofinals: "The gallery fills with the first official runs.",
+    videos_h: "Videos", videos_lead: "Learn the game in 90 seconds, see the written and the live rival side by side, and watch the shorts.",
+    made: "Made by Tuncer Timur, with AI collaborators: Claude (code, systems, writing), Codex (art), ChatGPT (research reviews), ACE-Step (music). Sound effects: Sonniss GDC bundle.",
+    disclosure: "AI disclosure: visuals were generated with AI image tools under art direction; the narrator voice is a synthetic clone of the creator's own voice, used with the creator's consent.",
+    license: "Benchmark data CC BY 4.0 · media all rights reserved",
+    humans: (c) => `<b>Humans</b> · ${c.players.toLocaleString()} signed-in players have played ${c.runs.toLocaleString()} runs and opened the Gate ${c.gateOpened.toLocaleString()} times (${pct(c.openedRate)}). ${c.freed} of them set the Warden free.`,
+    v: { TRAILER_M1_EN_9X16: "Trailer (vertical)", SOCIAL_LIVE_RIVAL_EN: "The live rival", SOCIAL_OBJECTION_EN: "Objection!", SOCIAL_MEMORY_EN: "The Warden remembers", EXPLAIN_AI_MODES_EN: "Written vs live rival", TRAILER_M1_9X16: "Trailer (vertical)", SOCIAL_LIVE_RIVAL: "The live rival", SOCIAL_OBJECTION: "Objection!", SOCIAL_MEMORY: "The Warden remembers", EXPLAIN_AI_MODES_TR: "Written vs live rival" },
+  },
+  tr: {
+    why_h: "Bu oyun neden var?", why_lead: "Asıl hedef benchmark. Karşındaki seni gerçekten okuyabildiğinde ne olur? Bir yapay zekâ ikna ederek kazanmak zorunda kalınca ne olur?",
+    why1_h: "Oyuncu için", why1: "Kendi cümleni yazarsın; yapay zekâ rakip karakterine bürünüp cevap verir, sözünü alıntılar, laf atar. Her sayıya yapay zekâ değil kurallar karar verir.",
+    why2_h: "Yapay zekâ modelleri için", why2: "SUASORIA Bench aynı oyunu onlara da oynatır; aynı kurallar altında nasıl düşünüp plan yaptıklarını ve ikna ettiklerini karşılaştırırsın.",
+    why3_h: "Sırada ne var?", why3: "Dungeons & Dragons ruhunda, çok oyunculu bir masaüstü FRP'ye giden ilk, basit deneme: zarları yapay zekâ oyun yöneticisi atar, maceranın kurgusunu kurar, NPC'leri ve dünyayı oyuncuların hayal gücüne göre yaratır.",
+    anykey: "Her yapay zekâ anahtarı çalışır: OpenAI, OpenRouter, NVIDIA, Gemini, Anthropic, Groq, DeepSeek, Mistral, xAI ve dahası ya da bilgisayarındaki Ollama. Anahtarı yapıştırınca sağlayıcının model listesi açılır: ara, seç, oyna. Ücretsiz modeller işaretli.",
+    nav_trailer: "Fragman", nav_bench: "Sıralama", nav_finals: "Son Sözler", nav_videos: "Videolar",
+    title: "Makineyi İkna Et", tag: "Tek silahın söz olan bir roguelike kart oyunu ve aynısını yapay zekâ modellerine de soran bir benchmark: bir makine, Makine'yi ikna edebilir mi?",
+    play: "▶ Tarayıcında ücretsiz oyna", repo: "GitHub",
+    bench_h: "SUASORIA Bench", bench_lead: "Her model aynı oyunları oynar: aynı tohumlar, aynı üç savunucu, aynı kurallar, aynı kural tabanlı hakem. Kapı'yı ne sıklıkla açabiliyor?",
+    model: "Model", opened: "Kapı açıldı", ci: "%95 aralık", runs: "Koşu", invalid: "Geçersiz hamle / koşu", tokens: "Token / koşu",
+    baseline: "Betik taban çizgisi (yapay zekâ yok)", partial: "sürüyor", none: "İlk resmi sonuçlar yakında. Betik taban çizgisi şimdiden tabloda.",
+    foot: (t, b) => `Protokol ${b.protocol} · motor ${t.engine ?? "—"} · hakem ${t.judge ?? "—"} · model başına ${t.runsRequired} koşu · güncellendi ${b.generated.slice(0, 10)}`,
+    how1_h: "Herkese aynı oyun", how1: "Sabit tohumlar, aynı üç savunucu, aynı kural metni ve token bütçesi. Sağlayıcı hataları yeniden denenir, modelin hanesine yazılmaz.",
+    how2_h: "Kandırılamayan hakem", how2: "Kuralları oyunun motoru uygular. Cümleleri kural tabanlı bir hakem puanlar: hiçbir model ailesini kayıramaz, talimat sızdırmayla kandırılamaz.",
+    how3_h: "Açık veri", how3: "Her koşu data/results içinde bir satır (CC BY 4.0). 15 koşu küçük bir örnek olduğu için güven aralığı da gösterilir.",
+    finals_h: "Son Sözler", finals_lead: "Her modelin Yeminlerin Muhafızı'na söylediği son cümle. Bazıları Kapı'yı açtı. Makinelerin nasıl tartıştığını oku.",
+    passed: "Kapı'yı açtı", failed: "ikna edemedi", road: { fear: "Korkusunu gör", oath: "Yemin bitti", protect: "Başka koruma yolu", responsibility: "Bedeli üstlen" },
+    nofinals: "Galeri ilk resmi koşularla dolacak.",
+    videos_h: "Videolar", videos_lead: "Oyunu 90 saniyede öğren, yazılı ve canlı rakibi yan yana gör, kısa videoları izle.",
+    made: "Yapan: Tuncer Timur. Yapay zekâ ortakları: Claude (kod, sistemler, metin), Codex (görseller), ChatGPT (araştırma incelemeleri), ACE-Step (müzik). Ses efektleri: Sonniss GDC paketi.",
+    disclosure: "Yapay zekâ beyanı: görseller sanat yönetimi altında yapay zekâ görsel araçlarıyla üretildi; anlatıcı sesi, yapımcının kendi sesinin onayıyla yapılmış sentetik bir kopyasıdır.",
+    license: "Benchmark verisi CC BY 4.0 · medya tüm hakları saklıdır",
+    humans: (c) => `<b>İnsanlar</b> · giriş yapmış ${c.players.toLocaleString("tr")} oyuncu ${c.runs.toLocaleString("tr")} koşu oynadı ve Kapı'yı ${c.gateOpened.toLocaleString("tr")} kez açtı (${pct(c.openedRate)}). ${c.freed} kişi Muhafız'ı özgür bıraktı.`,
+    v: { TRAILER_M1_9X16: "Fragman (dikey)", SOCIAL_LIVE_RIVAL: "Canlı rakip", SOCIAL_OBJECTION: "İtiraz!", SOCIAL_MEMORY: "Muhafız hatırlar", EXPLAIN_AI_MODES_TR: "Yazılı ve canlı rakip", TRAILER_M1_EN_9X16: "Fragman (dikey)", SOCIAL_LIVE_RIVAL_EN: "Canlı rakip", SOCIAL_OBJECTION_EN: "İtiraz!", SOCIAL_MEMORY_EN: "Muhafız hatırlar", EXPLAIN_AI_MODES_EN: "Yazılı ve canlı rakip" },
+  },
+};
+const TRACK = { "trial-en": { en: "Trial · English", tr: "Duruşma · İngilizce" }, "trial-tr": { en: "Trial · Turkish", tr: "Duruşma · Türkçe" }, "full-en": { en: "Full journey · English", tr: "Tam yolculuk · İngilizce" } };
+let lang = new URLSearchParams(location.search).get("lang") || (navigator.language || "en").slice(0, 2);
+if (!T[lang]) lang = "en";
+let board = null, finals = [], media = {}, site = {}, community = null, track = "trial-en";
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const pct = (x) => (lang === "tr" ? `%${Math.round(x * 100)}` : `${Math.round(x * 100)}%`); // Turkish: %20
+const getJSON = (u) => fetch(u, { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+
+function videoTag(id, cls = "video", attrs = "controls preload=\"metadata\" playsinline") {
+  const m = media[id];
+  if (!m) return "";
+  const tracks = [m.vttEn ? `<track kind="subtitles" srclang="en" label="English" src="${m.vttEn}"${lang === "en" ? " default" : ""}>` : "", m.vttTr ? `<track kind="subtitles" srclang="tr" label="Türkçe" src="${m.vttTr}"${lang === "tr" ? " default" : ""}>` : ""].join("");
+  return `<video class="${cls}" ${attrs} poster="${m.poster ?? ""}"><source src="${m.mp4}" type="video/mp4">${tracks}</video>`;
+}
+function render() {
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach((el) => { const v = t[el.dataset.t]; if (typeof v === "string") el.textContent = v; });
+  document.querySelectorAll(".lang button").forEach((b) => b.classList.toggle("on", b.dataset.l === lang));
+  $("#play").style.display = site.playUrl ? "" : "none"; if (site.playUrl) $("#play").href = site.playUrl;
+  $("#repo").style.display = site.repoUrl ? "" : "none"; if (site.repoUrl) $("#repo").href = site.repoUrl;
+  $("#trailer").innerHTML = videoTag(lang === "tr" ? "TRAILER_M1" : "TRAILER_M1_EN");
+  $("#howto").innerHTML = videoTag(lang === "tr" ? "TUT_HOW_TO_PLAY_TR" : "TUT_HOW_TO_PLAY_EN");
+  const shorts = lang === "tr" ? ["TRAILER_M1_9X16", "SOCIAL_LIVE_RIVAL", "SOCIAL_OBJECTION", "SOCIAL_MEMORY", "EXPLAIN_AI_MODES_TR"] : ["TRAILER_M1_EN_9X16", "SOCIAL_LIVE_RIVAL_EN", "SOCIAL_OBJECTION_EN", "SOCIAL_MEMORY_EN", "EXPLAIN_AI_MODES_EN"];
+  $("#shorts").innerHTML = shorts.filter((id) => media[id]).map((id) => `<div class="${media[id].aspect === "9:16" ? "vert" : ""}">${videoTag(id)}<div class="small muted" style="margin-top:6px">${esc(t.v[id] ?? id)}</div></div>`).join("");
+  renderBoard();
+  renderFinals();
+}
+function renderBoard() {
+  const t = T[lang];
+  const tracks = board?.tracks ?? [];
+  $("#tabs").innerHTML = Object.keys(TRACK).map((id) => `<button data-track="${id}" class="${id === track ? "on" : ""}">${TRACK[id][lang]}</button>`).join("");
+  document.querySelectorAll("#tabs button").forEach((b) => (b.onclick = () => { track = b.dataset.track; renderBoard(); }));
+  const tb = tracks.find((x) => x.id === track);
+  const ranked = (tb?.entries ?? []).filter((e) => !e.baseline);
+  const base = tb?.entries.find((e) => e.baseline);
+  if (!ranked.length && !base) { $("#board").innerHTML = `<div class="empty">${esc(t.none)}</div>`; $("#boardFoot").textContent = ""; return; }
+  const row = (e) => `<tr class="${e.baseline ? "baseline" : ""}"><td class="num">${e.rank ?? "—"}</td><td>${esc(e.baseline ? t.baseline : e.model)}${e.provider && e.provider !== "none" ? ` <span class="muted small">${esc(e.provider)}</span>` : ""}${e.complete || e.baseline ? "" : ` <span class="muted small">(${t.partial})</span>`}</td>
+    <td><div class="bar"><i style="width:${Math.max(e.openedRate ? 4 : 0, Math.round(e.openedRate * 100))}%"></i></div></td><td class="num"><b>${pct(e.openedRate)}</b></td>
+    <td class="num muted">${pct(e.ci95[0])}–${pct(e.ci95[1])}</td><td class="num">${e.invalidPerRun}</td><td class="num">${e.tokensPerRun.toLocaleString()}</td><td class="num">${e.runs}/${tb.runsRequired}</td></tr>`;
+  $("#board").innerHTML = (ranked.length ? "" : `<div class="empty" style="margin-bottom:12px">${esc(t.none)}</div>`) +
+    `<table class="board"><thead><tr><th>#</th><th>${t.model}</th><th></th><th class="num">${t.opened}</th><th class="num">${t.ci}</th><th class="num">${t.invalid}</th><th class="num">${t.tokens}</th><th class="num">${t.runs}</th></tr></thead><tbody>${[...ranked, ...(base ? [base] : [])].map(row).join("")}</tbody></table>`;
+  $("#boardFoot").textContent = tb ? t.foot(tb, board) : "";
+  const h = $("#humans");
+  if (community && community.runs > 0) { h.style.display = ""; h.innerHTML = t.humans(community); } else h.style.display = "none";
+}
+function renderFinals() {
+  const t = T[lang];
+  const list = finals.filter((f) => f.track === (lang === "tr" ? "trial-tr" : "trial-en")).concat(finals.filter((f) => f.track !== (lang === "tr" ? "trial-tr" : "trial-en"))).slice(0, 12);
+  $("#finalsList").innerHTML = list.length ? list.map((f) => `<div class="fw"><q>${esc(f.text)}</q><div class="small"><b>${esc(f.model)}</b> <span class="muted">· ${esc(f.provider)} · ${esc(TRACK[f.track]?.[lang] ?? f.track)}</span></div>
+    <div class="small">${f.path ? esc(t.road[f.path] ?? f.path) + " · " : ""}<span class="${f.passed ? "ok" : "no"}">${f.passed ? t.passed : t.failed}</span></div></div>`).join("") : `<div class="empty">${esc(t.nofinals)}</div>`;
+}
+document.querySelectorAll(".lang button").forEach((b) => (b.onclick = () => { lang = b.dataset.l; history.replaceState(null, "", `?lang=${lang}${location.hash}`); render(); }));
+Promise.all([getJSON("data/leaderboard.json"), getJSON("data/finals.json"), getJSON("media/media.json"), getJSON("site.json"), getJSON("data/community.json")]).then(([b, f, m, s, c]) => {
+  board = b; finals = f ?? []; media = m ?? {}; site = s ?? {}; community = c;
+  if (lang === "tr") track = "trial-tr";
+  render();
+});
+</script>
+</body>
+</html>

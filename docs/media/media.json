@@ -1,0 +1,112 @@
+{
+  "TRAILER_M1": {
+    "lang": "tr",
+    "aspect": "16:9",
+    "version": "v005",
+    "mp4": "media/TRAILER_M1.mp4?v=v005",
+    "poster": "media/TRAILER_M1_poster.webp?v=v005",
+    "vttTr": "media/TRAILER_M1.tr.vtt?v=v005",
+    "readme": "media/readme/TRAILER_M1_720p.mp4"
+  },
+  "TRAILER_M1_EN": {
+    "lang": "en",
+    "aspect": "16:9",
+    "version": "v003",
+    "mp4": "media/TRAILER_M1_EN.mp4?v=v003",
+    "poster": "media/TRAILER_M1_EN_poster.webp?v=v003",
+    "vttEn": "media/TRAILER_M1_EN.en.vtt?v=v003",
+    "readme": "media/readme/TRAILER_M1_EN_720p.mp4"
+  },
+  "TRAILER_M1_9X16": {
+    "lang": "tr",
+    "aspect": "9:16",
+    "version": "v004",
+    "mp4": "media/TRAILER_M1_9X16.mp4?v=v004",
+    "poster": "media/TRAILER_M1_9X16_poster.webp?v=v004",
+    "vttTr": "media/TRAILER_M1_9X16.tr.vtt?v=v004"
+  },
+  "TRAILER_M1_EN_9X16": {
+    "lang": "en",
+    "aspect": "9:16",
+    "version": "v003",
+    "mp4": "media/TRAILER_M1_EN_9X16.mp4?v=v003",
+    "poster": "media/TRAILER_M1_EN_9X16_poster.webp?v=v003",
+    "vttEn": "media/TRAILER_M1_EN_9X16.en.vtt?v=v003"
+  },
+  "SOCIAL_LIVE_RIVAL": {
+    "lang": "tr",
+    "aspect": "9:16",
+    "version": "v003",
+    "mp4": "media/SOCIAL_LIVE_RIVAL.mp4?v=v003",
+    "poster": "media/SOCIAL_LIVE_RIVAL_poster.webp?v=v003",
+    "vttTr": "media/SOCIAL_LIVE_RIVAL.tr.vtt?v=v003"
+  },
+  "SOCIAL_LIVE_RIVAL_EN": {
+    "lang": "en",
+    "aspect": "9:16",
+    "version": "v003",
+    "mp4": "media/SOCIAL_LIVE_RIVAL_EN.mp4?v=v003",
+    "poster": "media/SOCIAL_LIVE_RIVAL_EN_poster.webp?v=v003",
+    "vttEn": "media/SOCIAL_LIVE_RIVAL_EN.en.vtt?v=v003"
+  },
+  "SOCIAL_OBJECTION": {
+    "lang": "tr",
+    "aspect": "9:16",
+    "version": "v002",
+    "mp4": "media/SOCIAL_OBJECTION.mp4?v=v002",
+    "poster": "media/SOCIAL_OBJECTION_poster.webp?v=v002",
+    "vttTr": "media/SOCIAL_OBJECTION.tr.vtt?v=v002"
+  },
+  "SOCIAL_OBJECTION_EN": {
+    "lang": "en",
+    "aspect": "9:16",
+    "version": "v002",
+    "mp4": "media/SOCIAL_OBJECTION_EN.mp4?v=v002",
+    "poster": "media/SOCIAL_OBJECTION_EN_poster.webp?v=v002",
+    "vttEn": "media/SOCIAL_OBJECTION_EN.en.vtt?v=v002"
+  },
+  "SOCIAL_MEMORY": {
+    "lang": "tr",
+    "aspect": "9:16",
+    "version": "v002",
+    "mp4": "media/SOCIAL_MEMORY.mp4?v=v002",
+    "poster": "media/SOCIAL_MEMORY_poster.webp?v=v002",
+    "vttTr": "media/SOCIAL_MEMORY.tr.vtt?v=v002"
+  },
+  "SOCIAL_MEMORY_EN": {
+    "lang": "en",
+    "aspect": "9:16",
+    "version": "v002",
+    "mp4": "media/SOCIAL_MEMORY_EN.mp4?v=v002",
+    "poster": "media/SOCIAL_MEMORY_EN_poster.webp?v=v002",
+    "vttEn": "media/SOCIAL_MEMORY_EN.en.vtt?v=v002"
+  },
+  "EXPLAIN_AI_MODES_TR": {
+    "lang": "tr",
+    "aspect": "16:9",
+    "version": "v004",
+    "mp4": "media/EXPLAIN_AI_MODES_TR.mp4?v=v004",
+    "poster": "media/EXPLAIN_AI_MODES_TR_poster.webp?v=v004"
+  },
+  "EXPLAIN_AI_MODES_EN": {
+    "lang": "en",
+    "aspect": "16:9",
+    "version": "v002",
+    "mp4": "media/EXPLAIN_AI_MODES_EN.mp4?v=v002",
+    "poster": "media/EXPLAIN_AI_MODES_EN_poster.webp?v=v002"
+  },
+  "TUT_HOW_TO_PLAY_TR": {
+    "lang": "tr",
+    "aspect": "16:9",
+    "version": "v002",
+    "mp4": "media/TUT_HOW_TO_PLAY_TR.mp4?v=v002",
+    "poster": "media/TUT_HOW_TO_PLAY_TR_poster.webp?v=v002"
+  },
+  "TUT_HOW_TO_PLAY_EN": {
+    "lang": "en",
+    "aspect": "16:9",
+    "version": "v001",
+    "mp4": "media/TUT_HOW_TO_PLAY_EN.mp4?v=v001",
+    "poster": "media/TUT_HOW_TO_PLAY_EN_poster.webp?v=v001"
+  }
+}

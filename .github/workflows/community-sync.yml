@@ -1,0 +1,27 @@
+# Pulls the community board from the live game once a day (after the game is on ChatGPT Sites).
+# Set the repository variable SITE_URL (Settings → Secrets and variables → Actions → Variables), e.g. https://suasoria.example.
+# Until then this workflow does nothing. No secrets needed: the endpoint only returns aggregated, anonymous numbers.
+name: community-sync
+on:
+  schedule: [{ cron: "17 4 * * *" }]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    if: ${{ vars.SITE_URL != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch community stats
+        run: |
+          mkdir -p data docs/data
+          curl -fsS "${{ vars.SITE_URL }}/api/stats/public" -o data/community.json
+          cp data/community.json docs/data/community.json
+      - name: Commit if changed
+        run: |
+          git config user.name "suasoria-bot"
+          git config user.email "suasoria-bot@users.noreply.github.com"
+          git add data/community.json docs/data/community.json
+          git diff --cached --quiet || git commit -m "community stats $(date -u +%F)"
+          git push

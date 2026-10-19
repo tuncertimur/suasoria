@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="206" viewBox="0 0 820 206" role="img" aria-label="SUASORIA Bench Trial · English">
+<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#a8812f"/><stop offset="1" stop-color="#f0d488"/></linearGradient></defs>
+<rect width="820" height="206" rx="14" fill="#14111a"/><rect x="1" y="1" width="818" height="204" rx="13" fill="none" stroke="#3a3142"/>
+<text x="28" y="44" fill="#d8b45a" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="700" letter-spacing="2">SUASORIA BENCH</text>
+<text x="28" y="68" fill="#efe6d2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14">Can an AI convince the Machine? · Trial · English</text>
+<g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#9b8f7d"><text x="28" y="100">#</text><text x="60" y="100">Model</text><text x="430" y="100">Gate opened</text><text x="792" y="100" text-anchor="end">Runs</text></g>
+<text x="410" y="138" text-anchor="middle" fill="#efe6d2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16">First official results coming soon</text>
+<text x="28" y="184" fill="#9b8f7d" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12">Scripted baseline: 20% · protocol SB-1 · judge offline-v2 · updated 2026-10-19</text>
+</svg>

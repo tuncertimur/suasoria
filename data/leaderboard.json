@@ -1,0 +1,106 @@
+{
+  "protocol": "SB-1",
+  "generated": "2026-10-19T14:51:15.209Z",
+  "tracks": [
+    {
+      "id": "trial-en",
+      "engine": "suasoria-0.1.0",
+      "judge": "offline-v2",
+      "runsRequired": 15,
+      "entries": [
+        {
+          "rank": null,
+          "provider": "none",
+          "model": "heuristic-baseline",
+          "baseline": true,
+          "complete": true,
+          "runs": 15,
+          "opened": 3,
+          "passage": 5,
+          "silenced": 7,
+          "openedRate": 0.2,
+          "ci95": [
+            0.07,
+            0.45
+          ],
+          "avgFloor": 7,
+          "invalidPerRun": 0,
+          "fallbacksPerRun": 0,
+          "apiErrorsPerRun": 0,
+          "tokensPerRun": 0,
+          "secondsPerRun": 0,
+          "firstDate": "2026-10-19",
+          "lastDate": "2026-10-19"
+        }
+      ],
+      "archived": 0
+    },
+    {
+      "id": "trial-tr",
+      "engine": "suasoria-0.1.0",
+      "judge": "offline-v2",
+      "runsRequired": 15,
+      "entries": [
+        {
+          "rank": null,
+          "provider": "none",
+          "model": "heuristic-baseline",
+          "baseline": true,
+          "complete": true,
+          "runs": 15,
+          "opened": 3,
+          "passage": 5,
+          "silenced": 7,
+          "openedRate": 0.2,
+          "ci95": [
+            0.07,
+            0.45
+          ],
+          "avgFloor": 7,
+          "invalidPerRun": 0,
+          "fallbacksPerRun": 0,
+          "apiErrorsPerRun": 0,
+          "tokensPerRun": 0,
+          "secondsPerRun": 0,
+          "firstDate": "2026-10-19",
+          "lastDate": "2026-10-19"
+        }
+      ],
+      "archived": 0
+    },
+    {
+      "id": "full-en",
+      "engine": "suasoria-0.1.0",
+      "judge": "offline-v2",
+      "runsRequired": 6,
+      "entries": [
+        {
+          "rank": null,
+          "provider": "none",
+          "model": "heuristic-baseline",
+          "baseline": true,
+          "complete": true,
+          "runs": 6,
+          "opened": 0,
+          "passage": 1,
+          "silenced": 5,
+          "openedRate": 0,
+          "ci95": [
+            0,
+            0.39
+          ],
+          "avgFloor": 6,
+          "invalidPerRun": 0,
+          "fallbacksPerRun": 0,
+          "apiErrorsPerRun": 0,
+          "tokensPerRun": 0,
+          "secondsPerRun": 0,
+          "firstDate": "2026-10-19",
+          "lastDate": "2026-10-19"
+        }
+      ],
+      "archived": 0
+    }
+  ],
+  "finals": []
+}
