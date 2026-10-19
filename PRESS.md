@@ -13,7 +13,7 @@
 | Platform | Web browser (desktop first) |
 | Languages | Turkish, English |
 | Price | Free |
-| Play | opening soon on ChatGPT Sites |
+| Play | https://suasoria.turtir.chatgpt.site/ |
 | Leaderboard | https://tuncertimur.github.io/suasoria/ |
 | Contact | [GitHub issues](https://github.com/tuncertimur/suasoria/issues) · [@tuncertimur](https://github.com/tuncertimur) |
 
@@ -46,7 +46,7 @@
 | Platform | Web tarayıcısı (önce masaüstü) |
 | Dil | Türkçe, İngilizce |
 | Fiyat | Ücretsiz |
-| Oyna | yakında ChatGPT Sites'ta |
+| Oyna | https://suasoria.turtir.chatgpt.site/ |
 | Sıralama | https://tuncertimur.github.io/suasoria/?lang=tr |
 | İletişim | [GitHub sorunları](https://github.com/tuncertimur/suasoria/issues) · [@tuncertimur](https://github.com/tuncertimur) |
 

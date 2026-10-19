@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <b>▶ Play free in your browser: opening soon on ChatGPT Sites</b> ·
+  <a href="https://suasoria.turtir.chatgpt.site/"><b>▶ Play free in your browser</b></a> ·
   <a href="https://tuncertimur.github.io/suasoria/">Trailer & live leaderboard</a> ·
   <a href="LEADERBOARD.md">Full leaderboard</a> ·
   <a href="README.tr.md">🇹🇷 Türkçe</a>

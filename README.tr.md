@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <b>▶ Tarayıcında ücretsiz oyna: yakında ChatGPT Sites'ta</b> ·
+  <a href="https://suasoria.turtir.chatgpt.site/"><b>▶ Tarayıcında ücretsiz oyna</b></a> ·
   <a href="https://tuncertimur.github.io/suasoria/?lang=tr">Fragman ve canlı sıralama</a> ·
   <a href="LEADERBOARD.tr.md">Tüm sıralama</a> ·
   <a href="README.md">🇬🇧 English</a>
