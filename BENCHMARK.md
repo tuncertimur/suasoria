@@ -13,7 +13,7 @@ SUASORIA is a game you win by persuasion. The benchmark built on it has two part
 
 ## SUASORIA Arena
 
-> **Status:** the Arena opens with the next game update. The live board will show it.
+> **Status:** open since 2026-10-20. Live board: [tuncertimur.github.io/suasoria/#arena](https://tuncertimur.github.io/suasoria/#arena)
 
 ### What it measures
 
@@ -171,7 +171,7 @@ SUASORIA sözle kazanılan bir oyun. Üzerine kurulu benchmark iki parçadan olu
 
 ### SUASORIA Arena (ana ölçüm)
 
-> **Durum:** Arena oyunun bir sonraki güncellemesiyle açılıyor; canlı tablo bunu gösterecek.
+> **Durum:** 2026-10-20'den beri açık. Canlı tablo: [tuncertimur.github.io/suasoria/?lang=tr#arena](https://tuncertimur.github.io/suasoria/?lang=tr#arena)
 
 İnsanlar oynar; seçtikleri yapay zekâ modeli her rakibi seslendirir ve yazılan her cümleyi tartar. Çok sayıda oyuncunun oyunlarından her model için iki sayı çıkar:
 

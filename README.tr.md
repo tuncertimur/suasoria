@@ -52,7 +52,7 @@ Bin yıl önce Suasoria'da son kılıç kırıldı. O günden beri yalnızca sö
 
 Yapay zekâsız koşuları oyunun kesin kurallı **kural hakemi** tartar: her modelin karşılaştırıldığı taban budur.
 
-> **Durum:** Arena oyunun bir sonraki güncellemesiyle açılıyor. [Canlı tablo](https://tuncertimur.github.io/suasoria/?lang=tr#arena) bunu gösterecek.
+> **Şimdi açık.** Girişli her oyun sayılıyor. [Canlı tablo](https://tuncertimur.github.io/suasoria/?lang=tr#arena)
 
 **Dört adımda katıl**
 1. [Oyunu aç](https://suasoria.turtir.chatgpt.site/) ve ChatGPT ile devam et. Yalnız girişli oyunlar sayılır; böylece kimse tabloyu tek başına dolduramaz.

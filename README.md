@@ -52,7 +52,7 @@ A thousand years ago the last sword broke in Suasoria. Since then, only words ma
 
 Runs without AI are judged by the game's deterministic **rule judge**: the baseline every model is compared with.
 
-> **Status:** the Arena opens with the next game update. The [live board](https://tuncertimur.github.io/suasoria/#arena) will show it.
+> **Open now.** Every signed-in game counts. [Live board](https://tuncertimur.github.io/suasoria/#arena)
 
 **Join in four steps**
 1. [Open the game](https://suasoria.turtir.chatgpt.site/) and continue with ChatGPT. Only signed-in games count, so no single person can flood the board.
