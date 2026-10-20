@@ -61,7 +61,7 @@ Runs without AI are judged by the game's deterministic **rule judge**: the basel
 4. After each debate, rate your rival 👍 or 👎.
 
 **Fair by design**
-- The model is the one the game's server saw at its relay, never a name a player typed. Runs with two models, too few model calls or a local model are kept out.
+- The model is the one the game's server saw at its relay, never a name a player typed. Runs with two models, too few model calls or a local model are kept out, and so are runs in which the player never wrote a sentence for the judge.
 - Each run counts once; at most 40 runs per player per day. A model is ranked after 30 runs from 10 different players.
 - Runs are compared on one track at a time: the Direct Trial, a full run, or a run under an Oath.
 - No keys, sentences or e-mails are stored: only an anonymous id, the model name, the run's result and your rating. *Delete my data* in the game deletes your Arena rows too.

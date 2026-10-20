@@ -61,7 +61,7 @@ Yapay zekâsız koşuları oyunun kesin kurallı **kural hakemi** tartar: her mo
 4. Her tartışmadan sonra rakibini 👍 ya da 👎 ile puanla.
 
 **Adalet kuralları**
-- Model, oyuncunun yazdığı ad değil, oyunun sunucusunun aktarıcısında gördüğü modeldir. İki model kullanılan, model çağrısı az olan ya da yerel modelle oynanan koşular dışarıda kalır.
+- Model, oyuncunun yazdığı ad değil, oyunun sunucusunun aktarıcısında gördüğü modeldir. İki model kullanılan, model çağrısı az olan ya da yerel modelle oynanan koşular dışarıda kalır; oyuncunun hakeme hiç cümle yazmadığı koşular da.
 - Her koşu bir kez sayılır; oyuncu başına günde en çok 40 koşu. Bir model 10 farklı oyuncudan 30 koşu sonra sıralamaya girer.
 - Koşular parkur parkur karşılaştırılır: Doğrudan Duruşma, tam koşu ya da Yeminli koşu.
 - Anahtar, cümle ya da e-posta saklanmaz: yalnız anonim bir kimlik, model adı, koşunun sonucu ve puanın. Oyundaki *Verilerimi sil* Arena kayıtlarını da siler.

@@ -38,6 +38,7 @@ The model never decides numbers. It returns structured verdicts (does the senten
 - **Signed in only** (Sign in with ChatGPT). The server stores an anonymous id derived from the account, never the e-mail.
 - **Seen at the relay.** A live run counts only if the server saw at least 3 successful calls to exactly one model. Runs with two models, too few calls, a local model (Ollama, LM Studio) or a direct connection are kept but not counted, and are reported as *unverified*.
 - **No AI, really.** A run sent as "no AI" in which the relay saw model calls is not counted for the rule judge.
+- **The judge weighed something.** A run counts only if the player wrote at least one sentence for the judge: a speech or the Final Word. A run decided by cards alone says nothing about the model.
 - **Once per run, at most 40 runs per player per day.**
 - **Ranked** after **30 runs from 10 different players**. Below that a model is listed as *gathering data*.
 - **One track at a time.** Runs are compared only with runs of the same kind:
@@ -56,7 +57,7 @@ Kept on the game's server: the anonymous id, the run token, the provider and mod
 
 - Live: `GET https://suasoria.turtir.chatgpt.site/api/arena/board` (public, cached for a minute).
 - Daily copy in this repository: [`data/arena.json`](data/arena.json) (CC BY 4.0).
-- Fields: `rules` (thresholds); `humans` (all counted runs); `tracks.<trial|full|oath>.judges[]` with `provider`, `model`, `ruleJudge`, `runs`, `players`, `opened`, `passage`, `silenced`, `rate`, `ci95`, `playerRate`, `ranked`, `byLang`; `rivals[]` with `votes`, `up`, `upRate`, `ci95`, `players`, `ranked`; `pending.unverified`.
+- Fields: `rules` (thresholds); `humans` (all counted runs); `tracks.<trial|full|oath>.judges[]` with `provider`, `model`, `ruleJudge`, `runs`, `players`, `opened`, `passage`, `silenced`, `rate`, `ci95`, `playerRate`, `ranked`, `byLang`; `rivals[]` with `votes`, `up`, `upRate`, `ci95`, `players`, `ranked`; `pending.unverified` and `pending.noSpeech` (runs kept out).
 
 ### Limits, honestly
 
@@ -183,6 +184,7 @@ Model sayılara karar vermez: yapılandırılmış kararlar döndürür, sonucu 
 **Ne sayılır?**
 - Yalnız ChatGPT ile giriş yapmış oyuncular. Sunucu e-postayı değil, ondan türetilen anonim bir kimliği saklar.
 - Model, oyuncunun yazdığı ad değil, sunucunun aktarıcısında (`/api/llm`) gördüğü modeldir. Tek modele en az 3 başarılı çağrı gerekir. İki model, az çağrı, yerel model ya da doğrudan bağlantı varsa koşu sayılmaz ve *doğrulanamayan* olarak raporlanır.
+- Oyuncu hakeme en az bir cümle yazmış olmalı (konuşma ya da Son Söz); yalnız kartlarla biten koşu model hakkında bir şey söylemez.
 - Her koşu bir kez; oyuncu başına günde en çok 40 koşu.
 - Bir model 10 farklı oyuncudan 30 koşu sonra sıralamaya girer.
 - Koşular yalnız aynı parkurdakilerle karşılaştırılır: Doğrudan Duruşma (ana tablo), Yemin 0'da tam koşu, Yeminli tam koşu.
