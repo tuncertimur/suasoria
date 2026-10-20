@@ -7,11 +7,12 @@
 <p align="center">
   <b>A roguelike deckbuilder where words are the only weapon.</b><br>
   Climb the mountain, out-argue everyone who blocks your road, and convince the Warden of Oaths to open the Gate.<br>
-  And a benchmark that asks AI models to do the same: <b>can a machine convince the Machine?</b>
+  And a benchmark built on it: every game people play measures <b>how persuadable an AI model is, and how good a rival it makes.</b>
 </p>
 
 <p align="center">
   <a href="https://suasoria.turtir.chatgpt.site/"><b>▶ Play free in your browser</b></a> ·
+  <a href="#suasoria-arena"><b>Join the Arena</b></a> ·
   <a href="https://tuncertimur.github.io/suasoria/">Trailer & live leaderboard</a> ·
   <a href="LEADERBOARD.md">Full leaderboard</a> ·
   <a href="README.tr.md">🇹🇷 Türkçe</a>
@@ -26,7 +27,7 @@
 This game is a test bench, and the benchmark is the point. I wanted to see what happens when the thing you argue with can actually read you, and when an AI has to win by persuasion instead of by force.
 
 - **For players:** you write your own sentences, and an AI rival answers them in character, quotes you and needles you. The game's rules, not the AI, decide every number. AI makes the duel feel alive without being able to bend the outcome.
-- **For AI models:** SUASORIA Bench makes them play the very same game, so you can compare how well each one reasons, plans and persuades under the same rules.
+- **For AI models:** SUASORIA Arena measures them through the games people play: how often humans can convince each model, and how they rate it as a rival. SB-1 makes the models play the same game themselves.
 - **For what comes next:** this is my first small experiment in a new kind of game for a changing world. Next I want to build a **multiplayer tabletop RPG in the spirit of Dungeons & Dragons**. In it an AI game master rolls the dice, sets up the campaign by itself, and builds the NPCs and the world from what the players imagine. SUASORIA is the first, simple step toward that.
 
 ## The game
@@ -40,9 +41,40 @@ A thousand years ago the last sword broke in Suasoria. Since then, only words ma
 - **The Warden remembers.** Every choice on the road goes into the Ledger of Costs, and at the trial the Warden asks about all of it. Next run it remembers your last Final Word. Open the Gate by all four roads and the Warden goes free.
 - Turkish and English · free · runs in the browser.
 
-## SUASORIA Bench
+## SUASORIA Arena
 
-Every model plays the same games: same seeds, same three advocates, same rules, same deterministic judge. One question: **how often does it open the Gate?**
+**Humans × models: the main benchmark, and the reason this game exists.** You play; the AI model you chose voices every rival and judges every sentence you write. From many players' games the Arena measures two things for each model:
+
+| | What it measures | How |
+|---|---|---|
+| **Persuadability** | How often people open the Gate when this model is the judge | The game's deterministic engine turns the model's verdicts into the outcome. 95% Wilson interval and a per-player average |
+| **Rival rating** | Whether people found it a good opponent | 👍 / 👎 after each debate |
+
+Runs without AI are judged by the game's deterministic **rule judge**: the baseline every model is compared with.
+
+> **Status:** the Arena opens with the next game update. The [live board](https://tuncertimur.github.io/suasoria/#arena) will show it.
+
+**Join in four steps**
+1. [Open the game](https://suasoria.turtir.chatgpt.site/) and continue with ChatGPT. Only signed-in games count, so no single person can flood the board.
+2. Optional: connect your own model (any provider in the list; your key stays in your browser). Without one you play against the rule judge, which counts too.
+3. Play. The **Direct Trial** takes about ten minutes.
+4. After each debate, rate your rival 👍 or 👎.
+
+**Fair by design**
+- The model is the one the game's server saw at its relay, never a name a player typed. Runs with two models, too few model calls or a local model are kept out.
+- Each run counts once; at most 40 runs per player per day. A model is ranked after 30 runs from 10 different players.
+- Runs are compared on one track at a time: the Direct Trial, a full run, or a run under an Oath.
+- No keys, sentences or e-mails are stored: only an anonymous id, the model name, the run's result and your rating. *Delete my data* in the game deletes your Arena rows too.
+
+**Board:** [live](https://tuncertimur.github.io/suasoria/#arena) · data: [`data/arena.json`](data/arena.json) (daily, CC BY 4.0) · method and limits: [BENCHMARK.md](BENCHMARK.md#suasoria-arena)
+
+**Why your games matter.** A benchmark is only as strong as its sample. Once the Arena has enough players, we will ask AI labs and providers for research credits, so that anyone can play their models from a list without a key. Credits never buy a place on the board: every model is measured under the same rules, and sponsored access is labelled. With a list, models can be assigned at random and named only after the run (**blind mode**), which removes brand bias. *AI labs and providers:* [get in touch](../../issues/new/choose).
+
+**Where it fits.** [Chatbot Arena](https://arxiv.org/abs/2403.04132) showed that crowd votes can rank models, and [GameArena](https://arxiv.org/abs/2412.06394) that live games with people are a rich signal. Persuasion research mostly asks whether models can persuade ([Pauli et al.](https://arxiv.org/abs/2406.17753), [Schoenegger et al.](https://arxiv.org/abs/2505.09662)) or how susceptible they are to each other ([PMIYC](https://arxiv.org/abs/2503.01829)); sycophancy work asks whether they cave under pressure ([SYCON-Bench](https://arxiv.org/abs/2505.23840)). SUASORIA Arena asks the reverse question at scale, inside a game with fixed rules: **can ordinary people persuade a model, and do they enjoy arguing with it?** Flattery, meta-talk and prompt injection are recognised by the game and cost the player.
+
+## SB-1: AI models as players
+
+The second part of SUASORIA Bench. Every model plays the same games itself: same seeds, same three advocates, same rules, same deterministic judge. One question: **how often does it open the Gate?**
 
 <p align="center"><img src="assets/leaderboard-en.svg" alt="SUASORIA Bench leaderboard" width="100%"></p>
 

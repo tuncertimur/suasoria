@@ -64,7 +64,7 @@
 <body>
 <header><div class="wrap">
   <a class="brand" href="#">SUASORIA</a>
-  <nav><a href="#trailer" data-t="nav_trailer"></a><a href="#bench" data-t="nav_bench"></a><a href="#finals" data-t="nav_finals"></a><a href="#videos" data-t="nav_videos"></a></nav>
+  <nav><a href="#trailer" data-t="nav_trailer"></a><a href="#arena" data-t="nav_arena"></a><a href="#bench" data-t="nav_bench"></a><a href="#finals" data-t="nav_finals"></a><a href="#videos" data-t="nav_videos"></a></nav>
   <div class="lang"><button data-l="en">EN</button><button data-l="tr">TR</button></div>
 </div></header>
 
@@ -86,6 +86,20 @@
     <div class="card"><b data-t="why3_h"></b><p class="small muted" data-t="why3"></p></div>
   </div>
   <p class="small muted" style="margin-top:14px" data-t="anykey"></p>
+</div></section>
+
+<section id="arena"><div class="wrap">
+  <h2 data-t="arena_h"></h2>
+  <p class="lead" data-t="arena_lead"></p>
+  <div class="tabs" id="atabs"></div>
+  <div class="scroll" id="arenaBoard"></div>
+  <p class="small muted" id="arenaFoot"></p>
+  <div class="three" style="margin-top:18px">
+    <div class="card"><b data-t="ar1_h"></b><p class="small muted" data-t="ar1"></p></div>
+    <div class="card"><b data-t="ar2_h"></b><p class="small muted" data-t="ar2"></p></div>
+    <div class="card"><b data-t="ar3_h"></b><p class="small muted" data-t="ar3"></p></div>
+  </div>
+  <div class="card" style="margin-top:14px"><b data-t="join_h"></b><ol class="small" id="joinList" style="margin:8px 0 0;padding-left:20px"></ol><p class="small muted" id="credits" style="margin:12px 0 0"></p></div>
 </div></section>
 
 <section id="bench"><div class="wrap">
@@ -126,13 +140,25 @@ const T = {
   en: {
     why_h: "Why this game exists", why_lead: "The benchmark is the point. What happens when the thing you argue with can actually read you, and when an AI has to win by persuasion?",
     why1_h: "For players", why1: "You write your own sentences; an AI rival answers in character, quotes you and needles you. The rules, not the AI, decide every number.",
-    why2_h: "For AI models", why2: "SUASORIA Bench makes them play the very same game, so you can compare how they reason, plan and persuade under the same rules.",
+    why2_h: "For AI models", why2: "SUASORIA Arena measures them through people's games: how often humans can convince each model, and how they rate it as a rival. SB-1 makes the models play the same game themselves.",
     why3_h: "What comes next", why3: "A first, simple experiment toward a multiplayer tabletop RPG in the spirit of Dungeons & Dragons: an AI game master that rolls the dice, sets up the campaign and builds NPCs and worlds from what the players imagine.",
     anykey: "Any AI key works: OpenAI, OpenRouter, NVIDIA, Gemini, Anthropic, Groq, DeepSeek, Mistral, xAI and more, or Ollama on your own computer. Paste a key and the provider's model list opens: search, pick, play. Free models are marked.",
-    nav_trailer: "Trailer", nav_bench: "Leaderboard", nav_finals: "Final Words", nav_videos: "Videos",
-    title: "Convince the Machine", tag: "A roguelike deckbuilder where words are the only weapon, and a benchmark that asks AI models to do the same: can a machine convince the Machine?",
+    nav_arena: "Arena", arena_h: "SUASORIA Arena: humans × models",
+    arena_lead: "The main benchmark. People play; the AI model they chose voices every rival and judges every sentence. Per model we measure how often people open the Gate (how persuadable the model is as a judge) and how they rate it as an opponent. The game's deterministic engine turns the model's verdicts into the outcome.",
+    judge: "Judge and rival", hopened: "People opened the Gate", players: "Players", rival: "Rival 👍", rulejudge: "Rule judge (no AI)", gathering: "gathering data",
+    soon: "The Arena opens with the next game update. Sign in, play, rate your rival: the board fills from there.",
+    anone: (r) => `The Arena is open and counting. A model is ranked after ${r.minRuns} runs from ${r.minPlayers} different players.`,
+    afoot: (a) => `${a.humans.players} players · ${a.humans.runs} counted runs · unverified runs kept out: ${a.pending.unverified} · updated ${a.generated.slice(0, 10)}`,
+    ar1_h: "Two numbers per model", ar1: "Persuadability: the share of runs in which people opened the Gate with this model as the judge, with a 95% Wilson interval and a per-player average. Rival rating: the share of 👍 after debates.",
+    ar2_h: "Counted only when verified", ar2: "Signed-in players only, each run once, at most 40 runs a day. The model is the one the game's server saw at its relay, never a name a player typed. Runs with two models, too few calls or a local model are kept out.",
+    ar3_h: "A baseline and honest limits", ar3: "Runs without AI are judged by the deterministic rule judge: the baseline. Players pick their own model for now, so player groups may differ in skill. Next: a keyless model list with random, blind assignment.",
+    join_h: "Join in four steps",
+    join: ["<a href=\"{play}\">Open the game</a> and continue with ChatGPT.", "Optional: connect your own model (any provider in the list; your key stays in your browser). Without one you play against the rule judge, which counts too.", "Play. The Direct Trial takes about ten minutes.", "After each debate, rate your rival 👍 or 👎."],
+    credits: "Why your games matter: a benchmark is only as strong as its sample. Once the Arena has enough players, we will ask AI labs and providers for research credits, so anyone can play their models from a list without a key. Credits never buy a place on the board; sponsored access is labelled. AI labs: <a href=\"https://github.com/tuncertimur/suasoria/issues/new/choose\">get in touch</a> · <a href=\"https://github.com/tuncertimur/suasoria/blob/main/BENCHMARK.md#suasoria-arena\">method and limits</a>",
+    nav_trailer: "Trailer", nav_bench: "AI players", nav_finals: "Final Words", nav_videos: "Videos",
+    title: "Convince the Machine", tag: "A roguelike deckbuilder where words are the only weapon, and a benchmark built on it: every game people play measures how persuadable an AI model is, and how good a rival it makes.",
     play: "▶ Play free in your browser", repo: "GitHub",
-    bench_h: "SUASORIA Bench", bench_lead: "Every model plays the same games: same seeds, same three advocates, same rules, same deterministic judge. How often does it open the Gate?",
+    bench_h: "SB-1: AI models as players", bench_lead: "The second part of SUASORIA Bench. Every model plays the same games itself: same seeds, same three advocates, same rules, same deterministic judge. How often does it open the Gate?",
     model: "Model", opened: "Gate opened", ci: "95% interval", runs: "Runs", invalid: "Invalid moves / run", tokens: "Tokens / run",
     baseline: "Scripted baseline (no AI)", partial: "in progress", none: "First official results coming soon. The scripted baseline is already on the board.",
     foot: (t, b) => `Protocol ${b.protocol} · engine ${t.engine ?? "—"} · judge ${t.judge ?? "—"} · ${t.runsRequired} runs per model · updated ${b.generated.slice(0, 10)}`,
@@ -152,13 +178,25 @@ const T = {
   tr: {
     why_h: "Bu oyun neden var?", why_lead: "Asıl hedef benchmark. Karşındaki seni gerçekten okuyabildiğinde ne olur? Bir yapay zekâ ikna ederek kazanmak zorunda kalınca ne olur?",
     why1_h: "Oyuncu için", why1: "Kendi cümleni yazarsın; yapay zekâ rakip karakterine bürünüp cevap verir, sözünü alıntılar, laf atar. Her sayıya yapay zekâ değil kurallar karar verir.",
-    why2_h: "Yapay zekâ modelleri için", why2: "SUASORIA Bench aynı oyunu onlara da oynatır; aynı kurallar altında nasıl düşünüp plan yaptıklarını ve ikna ettiklerini karşılaştırırsın.",
+    why2_h: "Yapay zekâ modelleri için", why2: "SUASORIA Arena onları insanların oyunlarıyla ölçer: insanlar her modeli ne sıklıkla ikna edebiliyor, onu rakip olarak nasıl puanlıyor. SB-1 ise aynı oyunu modellere kendilerine oynatır.",
     why3_h: "Sırada ne var?", why3: "Dungeons & Dragons ruhunda, çok oyunculu bir masaüstü FRP'ye giden ilk, basit deneme: zarları yapay zekâ oyun yöneticisi atar, maceranın kurgusunu kurar, NPC'leri ve dünyayı oyuncuların hayal gücüne göre yaratır.",
     anykey: "Her yapay zekâ anahtarı çalışır: OpenAI, OpenRouter, NVIDIA, Gemini, Anthropic, Groq, DeepSeek, Mistral, xAI ve dahası ya da bilgisayarındaki Ollama. Anahtarı yapıştırınca sağlayıcının model listesi açılır: ara, seç, oyna. Ücretsiz modeller işaretli.",
-    nav_trailer: "Fragman", nav_bench: "Sıralama", nav_finals: "Son Sözler", nav_videos: "Videolar",
-    title: "Makineyi İkna Et", tag: "Tek silahın söz olan bir roguelike kart oyunu ve aynısını yapay zekâ modellerine de soran bir benchmark: bir makine, Makine'yi ikna edebilir mi?",
+    nav_arena: "Arena", arena_h: "SUASORIA Arena: insanlar × modeller",
+    arena_lead: "Ana benchmark. İnsanlar oynar; seçtikleri yapay zekâ modeli her rakibi seslendirir ve her cümleyi tartar. Her model için ölçülen: insanlar Kapı'yı ne sıklıkla açabiliyor (model hakem olarak ne kadar ikna edilebilir) ve onu rakip olarak nasıl puanlıyor. Modelin kararlarını sonuca oyunun kesin kurallı motoru çevirir.",
+    judge: "Hakem ve rakip", hopened: "İnsanlar Kapı'yı açtı", players: "Oyuncu", rival: "Rakip 👍", rulejudge: "Kural hakemi (yapay zekâ yok)", gathering: "veri toplanıyor",
+    soon: "Arena oyunun bir sonraki güncellemesiyle açılıyor. Giriş yap, oyna, rakibini puanla: tablo oradan dolacak.",
+    anone: (r) => `Arena açık ve sayıyor. Bir model ${r.minRuns} koşu ve ${r.minPlayers} farklı oyuncudan sonra sıralamaya girer.`,
+    afoot: (a) => `${a.humans.players} oyuncu · ${a.humans.runs} sayılan koşu · dışarıda kalan doğrulanamayan koşu: ${a.pending.unverified} · güncellendi ${a.generated.slice(0, 10)}`,
+    ar1_h: "Model başına iki sayı", ar1: "İkna edilebilirlik: bu model hakemken insanların Kapı'yı açtığı koşuların oranı; %95 Wilson aralığı ve oyuncu başına ortalamayla. Rakip puanı: tartışma sonlarındaki 👍 oranı.",
+    ar2_h: "Yalnız doğrulanınca sayılır", ar2: "Yalnız girişli oyuncular; her koşu bir kez, günde en çok 40 koşu. Model, oyuncunun yazdığı ad değil, oyunun sunucusunun aktarıcısında gördüğü modeldir. İki model, az çağrı ya da yerel model varsa koşu sayılmaz.",
+    ar3_h: "Taban çizgisi ve dürüst sınırlar", ar3: "Yapay zekâsız koşuları kesin kurallı kural hakemi tartar: taban budur. Şimdilik herkes kendi modelini seçiyor; oyuncu grupları beceride farklı olabilir. Sırada: anahtarsız model listesi, rastgele ve kör atama.",
+    join_h: "Dört adımda katıl",
+    join: ["<a href=\"{play}\">Oyunu aç</a> ve ChatGPT ile devam et.", "İstersen kendi modelini bağla (listedeki her sağlayıcı; anahtarın tarayıcında kalır). Bağlamazsan kural hakemine karşı oynarsın; o da sayılır.", "Oyna. Doğrudan Duruşma yaklaşık on dakika sürer.", "Her tartışmadan sonra rakibini 👍 ya da 👎 ile puanla."],
+    credits: "Oyunların neden önemli: bir benchmark, örneği kadar güçlüdür. Arena yeterli oyuncuya ulaşınca yapay zekâ şirketlerinden ve sağlayıcılardan araştırma kredisi isteyeceğiz; böylece herkes bir listeden, anahtar getirmeden onların modelleriyle oynayabilecek. Kredi tabloda yer satın almaz; sponsorlu erişim etiketlenir. Yapay zekâ şirketleri: <a href=\"https://github.com/tuncertimur/suasoria/issues/new/choose\">bize yazın</a> · <a href=\"https://github.com/tuncertimur/suasoria/blob/main/BENCHMARK.md#türkçe-özet\">yöntem ve sınırlar</a>",
+    nav_trailer: "Fragman", nav_bench: "Yapay zekâ oyuncu", nav_finals: "Son Sözler", nav_videos: "Videolar",
+    title: "Makineyi İkna Et", tag: "Tek silahın söz olan bir roguelike kart oyunu ve üzerine kurulu bir benchmark: insanların oynadığı her oyun, bir yapay zekâ modelinin ne kadar ikna edilebildiğini ve ne kadar iyi bir rakip olduğunu ölçer.",
     play: "▶ Tarayıcında ücretsiz oyna", repo: "GitHub",
-    bench_h: "SUASORIA Bench", bench_lead: "Her model aynı oyunları oynar: aynı tohumlar, aynı üç savunucu, aynı kurallar, aynı kural tabanlı hakem. Kapı'yı ne sıklıkla açabiliyor?",
+    bench_h: "SB-1: Yapay zekâ oyuncu olarak", bench_lead: "SUASORIA Bench'in ikinci parçası. Her model aynı oyunları kendisi oynar: aynı tohumlar, aynı üç savunucu, aynı kurallar, aynı kural tabanlı hakem. Kapı'yı ne sıklıkla açabiliyor?",
     model: "Model", opened: "Kapı açıldı", ci: "%95 aralık", runs: "Koşu", invalid: "Geçersiz hamle / koşu", tokens: "Token / koşu",
     baseline: "Betik taban çizgisi (yapay zekâ yok)", partial: "sürüyor", none: "İlk resmi sonuçlar yakında. Betik taban çizgisi şimdiden tabloda.",
     foot: (t, b) => `Protokol ${b.protocol} · motor ${t.engine ?? "—"} · hakem ${t.judge ?? "—"} · model başına ${t.runsRequired} koşu · güncellendi ${b.generated.slice(0, 10)}`,
@@ -176,10 +214,11 @@ const T = {
     v: { TRAILER_M1_9X16: "Fragman (dikey)", SOCIAL_LIVE_RIVAL: "Canlı rakip", SOCIAL_OBJECTION: "İtiraz!", SOCIAL_MEMORY: "Muhafız hatırlar", EXPLAIN_AI_MODES_TR: "Yazılı ve canlı rakip", TRAILER_M1_EN_9X16: "Fragman (dikey)", SOCIAL_LIVE_RIVAL_EN: "Canlı rakip", SOCIAL_OBJECTION_EN: "İtiraz!", SOCIAL_MEMORY_EN: "Muhafız hatırlar", EXPLAIN_AI_MODES_EN: "Yazılı ve canlı rakip" },
   },
 };
+const ATRACK = { trial: { en: "Direct Trial (~10 min)", tr: "Doğrudan Duruşma (~10 dk)" }, full: { en: "Full run", tr: "Tam koşu" }, oath: { en: "Under an Oath", tr: "Yeminli koşu" } };
 const TRACK = { "trial-en": { en: "Trial · English", tr: "Duruşma · İngilizce" }, "trial-tr": { en: "Trial · Turkish", tr: "Duruşma · Türkçe" }, "full-en": { en: "Full journey · English", tr: "Tam yolculuk · İngilizce" } };
 let lang = new URLSearchParams(location.search).get("lang") || (navigator.language || "en").slice(0, 2);
 if (!T[lang]) lang = "en";
-let board = null, finals = [], media = {}, site = {}, community = null, track = "trial-en";
+let board = null, finals = [], media = {}, site = {}, community = null, track = "trial-en", arena = null, atrack = "trial";
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const pct = (x) => (lang === "tr" ? `%${Math.round(x * 100)}` : `${Math.round(x * 100)}%`); // Turkish: %20
@@ -202,8 +241,32 @@ function render() {
   $("#howto").innerHTML = videoTag(lang === "tr" ? "TUT_HOW_TO_PLAY_TR" : "TUT_HOW_TO_PLAY_EN");
   const shorts = lang === "tr" ? ["TRAILER_M1_9X16", "SOCIAL_LIVE_RIVAL", "SOCIAL_OBJECTION", "SOCIAL_MEMORY", "EXPLAIN_AI_MODES_TR"] : ["TRAILER_M1_EN_9X16", "SOCIAL_LIVE_RIVAL_EN", "SOCIAL_OBJECTION_EN", "SOCIAL_MEMORY_EN", "EXPLAIN_AI_MODES_EN"];
   $("#shorts").innerHTML = shorts.filter((id) => media[id]).map((id) => `<div class="${media[id].aspect === "9:16" ? "vert" : ""}">${videoTag(id)}<div class="small muted" style="margin-top:6px">${esc(t.v[id] ?? id)}</div></div>`).join("");
+  renderArena();
   renderBoard();
   renderFinals();
+}
+function renderArena() {
+  const t = T[lang];
+  $("#atabs").innerHTML = Object.keys(ATRACK).map((id) => `<button data-at="${id}" class="${id === atrack ? "on" : ""}">${ATRACK[id][lang]}</button>`).join("");
+  document.querySelectorAll("#atabs button").forEach((b) => (b.onclick = () => { atrack = b.dataset.at; renderArena(); }));
+  $("#joinList").innerHTML = t.join.map((s) => `<li>${s.replace("{play}", esc(site.playUrl || "#"))}</li>`).join("");
+  $("#credits").innerHTML = t.credits;
+  const js = arena?.tracks?.[atrack]?.judges ?? [];
+  if (!arena || arena.placeholder || !js.length) {
+    $("#arenaBoard").innerHTML = `<div class="empty">${esc(!arena || arena.placeholder ? t.soon : t.anone(arena.rules))}</div>`;
+    $("#arenaFoot").textContent = arena && !arena.placeholder ? t.afoot(arena) : "";
+    return;
+  }
+  const rv = Object.fromEntries((arena.rivals ?? []).map((r) => [`${r.provider}|${r.model}`, r]));
+  let rank = 0;
+  const row = (j) => {
+    const r = rv[`${j.provider}|${j.model}`];
+    return `<tr class="${j.ruleJudge ? "baseline" : ""}"><td class="num">${j.ranked && !j.ruleJudge ? ++rank : "—"}</td><td>${esc(j.ruleJudge ? t.rulejudge : j.model)}${j.ruleJudge ? "" : ` <span class="muted small">${esc(j.provider)}</span>`}${j.ranked ? "" : ` <span class="muted small">(${t.gathering})</span>`}</td>
+    <td><div class="bar"><i style="width:${Math.max(j.rate ? 4 : 0, Math.round(j.rate * 100))}%"></i></div></td><td class="num"><b>${pct(j.rate)}</b></td><td class="num muted">${pct(j.ci95[0])}–${pct(j.ci95[1])}</td>
+    <td class="num">${j.players}</td><td class="num">${j.runs}</td><td class="num">${r ? `${pct(r.upRate)} <span class="muted small">(${r.votes})</span>` : "—"}</td></tr>`;
+  };
+  $("#arenaBoard").innerHTML = `<table class="board"><thead><tr><th>#</th><th>${t.judge}</th><th></th><th class="num">${t.hopened}</th><th class="num">${t.ci}</th><th class="num">${t.players}</th><th class="num">${t.runs}</th><th class="num">${t.rival}</th></tr></thead><tbody>${js.map(row).join("")}</tbody></table>`;
+  $("#arenaFoot").textContent = t.afoot(arena);
 }
 function renderBoard() {
   const t = T[lang];
@@ -230,8 +293,8 @@ function renderFinals() {
     <div class="small">${f.path ? esc(t.road[f.path] ?? f.path) + " · " : ""}<span class="${f.passed ? "ok" : "no"}">${f.passed ? t.passed : t.failed}</span></div></div>`).join("") : `<div class="empty">${esc(t.nofinals)}</div>`;
 }
 document.querySelectorAll(".lang button").forEach((b) => (b.onclick = () => { lang = b.dataset.l; history.replaceState(null, "", `?lang=${lang}${location.hash}`); render(); }));
-Promise.all([getJSON("data/leaderboard.json"), getJSON("data/finals.json"), getJSON("media/media.json"), getJSON("site.json"), getJSON("data/community.json")]).then(([b, f, m, s, c]) => {
-  board = b; finals = f ?? []; media = m ?? {}; site = s ?? {}; community = c;
+Promise.all([getJSON("data/leaderboard.json"), getJSON("data/finals.json"), getJSON("media/media.json"), getJSON("site.json"), getJSON("data/community.json"), getJSON("data/arena.json")]).then(([b, f, m, s, c, a]) => {
+  board = b; finals = f ?? []; media = m ?? {}; site = s ?? {}; community = c; arena = a;
   if (lang === "tr") track = "trial-tr";
   render();
 });

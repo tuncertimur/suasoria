@@ -2,9 +2,9 @@
 
 [Türkçe aşağıda](#basın-kiti--suasoria-makineyi-i̇kna-et)
 
-**One line.** A roguelike deckbuilder where words are the only weapon, and an AI benchmark that asks whether a machine can convince the Machine.
+**One line.** A roguelike deckbuilder where words are the only weapon, and an AI benchmark built from people's games: how persuadable is each model, and how good a rival?
 
-**Short.** In Suasoria swords were banned a thousand years ago; every fight is fought with words. You climb seven floors of rivals with argument cards and your own sentences, then face the Warden of Oaths, an ancient machine judge, in a three-session trial. Connect your own AI and the rivals read what you write, answer in character and throw jabs. Every AI model can also play the game itself: SUASORIA Bench measures how often each model opens the Gate.
+**Short.** In Suasoria swords were banned a thousand years ago; every fight is fought with words. You climb seven floors of rivals with argument cards and your own sentences, then face the Warden of Oaths, an ancient machine judge, in a three-session trial. Connect your own AI and the rivals read what you write, answer in character and throw jabs. Every signed-in game also feeds SUASORIA Arena, which measures per AI model how often people can convince it and how they rate it as a rival. In SB-1 the models play the game themselves.
 
 | | |
 |---|---|
@@ -20,6 +20,7 @@
 **What is new about it**
 - **Your sentences matter.** You can take the floor and write your own argument; the rival quotes it and answers.
 - **Live AI rivals with fair rules.** The player's own model (15+ providers or a local one) voices the rivals and weighs meaning, but every number stays in a deterministic engine, so prompt tricks cannot win the game.
+- **A benchmark made of play.** In SUASORIA Arena people argue with the AI model they chose. The game records how often they open the Gate and how they rate the rival: signed-in, verified at the server, open data.
 - **A benchmark you can read.** Models play the same seeded games under a rule-based judge. The data is open, and so are the Final Words each model said to the Warden.
 - **A judge that remembers.** The Warden recalls your last Final Word. Four different roads to the Gate unlock the true ending.
 
@@ -35,9 +36,9 @@
 
 # Basın kiti — SUASORIA: Makineyi İkna Et
 
-**Tek cümle.** Tek silahın söz olduğu bir roguelike kart oyunu ve bir makinenin Makine'yi ikna edip edemeyeceğini soran bir yapay zekâ benchmark'ı.
+**Tek cümle.** Tek silahın söz olduğu bir roguelike kart oyunu ve insanların oyunlarından kurulan bir yapay zekâ benchmark'ı: her model ne kadar ikna edilebiliyor, ne kadar iyi bir rakip?
 
-**Kısa.** Suasoria'da kılıçlar bin yıl önce yasaklandı; her kavga sözle yapılır. Argüman kartlarınla ve kendi cümlelerinle yedi kat boyunca rakiplerini aşarsın. Sonunda kadim bir makine yargıç olan Yeminlerin Muhafızı'nın karşısına üç celselik bir duruşma için çıkarsın. Kendi yapay zekânı bağlarsan rakipler yazdığını okur, karakterlerine bürünüp cevap verir ve laf atar. Her yapay zekâ modeli oyunu kendisi de oynayabilir: SUASORIA Bench, hangi modelin Kapı'yı ne sıklıkla açtığını ölçer.
+**Kısa.** Suasoria'da kılıçlar bin yıl önce yasaklandı; her kavga sözle yapılır. Argüman kartlarınla ve kendi cümlelerinle yedi kat boyunca rakiplerini aşarsın. Sonunda kadim bir makine yargıç olan Yeminlerin Muhafızı'nın karşısına üç celselik bir duruşma için çıkarsın. Kendi yapay zekânı bağlarsan rakipler yazdığını okur, karakterlerine bürünüp cevap verir ve laf atar. Girişli her oyun SUASORIA Arena'ya da katkı verir: Arena, her yapay zekâ modeli için insanların onu ne sıklıkla ikna edebildiğini ve onu rakip olarak nasıl puanladığını ölçer. SB-1'de ise modeller oyunu kendileri oynar.
 
 | | |
 |---|---|
@@ -53,6 +54,7 @@
 **Neyi yeni?**
 - **Cümlen önemli.** Söz alıp kendi argümanını yazabilirsin; rakip sözünü alıntılar ve cevap verir.
 - **Kuralları adil canlı rakipler.** Rakipleri oyuncunun kendi modeli seslendirir (15'ten fazla sağlayıcı ya da bilgisayardaki bir model) ve anlamı tartar. Ama her sayı kural tabanlı motorda kalır; talimat hileleri oyunu kazandırmaz.
+- **Oyundan doğan bir benchmark.** SUASORIA Arena'da insanlar seçtikleri yapay zekâ modeliyle tartışır. Oyun, Kapı'yı ne sıklıkla açtıklarını ve rakibi nasıl puanladıklarını kaydeder: girişli, sunucuda doğrulanmış, açık veri.
 - **Okunabilen bir benchmark.** Modeller aynı tohumlu oyunları kural tabanlı bir hakem önünde oynar. Veriler açık, her modelin Muhafız'a söylediği Son Söz de.
 - **Hatırlayan bir yargıç.** Muhafız son Son Söz'ünü hatırlar. Kapı'yı dört farklı yoldan açmak gerçek sonu açar.
 

@@ -1,0 +1,77 @@
+{
+ "generated": "2026-10-20T00:00:00.000Z",
+ "rules": {
+  "minRuns": 30,
+  "minPlayers": 10,
+  "dailyCap": 40,
+  "minCalls": 3
+ },
+ "humans": {
+  "runs": 0,
+  "players": 0,
+  "opened": 0,
+  "passage": 0,
+  "silenced": 0,
+  "rate": 0,
+  "ci95": [
+   0,
+   0
+  ],
+  "playerRate": 0
+ },
+ "tracks": {
+  "trial": {
+   "humans": {
+    "runs": 0,
+    "players": 0,
+    "opened": 0,
+    "passage": 0,
+    "silenced": 0,
+    "rate": 0,
+    "ci95": [
+     0,
+     0
+    ],
+    "playerRate": 0
+   },
+   "judges": []
+  },
+  "full": {
+   "humans": {
+    "runs": 0,
+    "players": 0,
+    "opened": 0,
+    "passage": 0,
+    "silenced": 0,
+    "rate": 0,
+    "ci95": [
+     0,
+     0
+    ],
+    "playerRate": 0
+   },
+   "judges": []
+  },
+  "oath": {
+   "humans": {
+    "runs": 0,
+    "players": 0,
+    "opened": 0,
+    "passage": 0,
+    "silenced": 0,
+    "rate": 0,
+    "ci95": [
+     0,
+     0
+    ],
+    "playerRate": 0
+   },
+   "judges": []
+  }
+ },
+ "rivals": [],
+ "pending": {
+  "unverified": 0
+ },
+ "placeholder": true
+}
